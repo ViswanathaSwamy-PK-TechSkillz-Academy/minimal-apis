@@ -1,6 +1,15 @@
-@School.API_HostAddress = http://localhost:5264
+@hostname=https://localhost
+@port=5264
+@host={{hostname}}:{{port}}
 
-GET {{School.API_HostAddress}}/weatherforecast/
-Accept: application/json
+### Get the Root ###
 
-###
+GET {{host}}
+
+### Get the Root ###
+
+### Get Courses ###
+
+GET {{host}}/api/courses
+
+### Get Courses ###
