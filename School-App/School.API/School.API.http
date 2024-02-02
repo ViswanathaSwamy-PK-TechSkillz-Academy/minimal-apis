@@ -1,0 +1,15 @@
+@hostname=https://localhost
+@port=5264
+@host={{hostname}}:{{port}}
+
+### Get the Root ###
+
+GET {{host}}
+
+### Get the Root ###
+
+### Get Courses ###
+
+GET {{host}}/api/courses
+
+### Get Courses ###
