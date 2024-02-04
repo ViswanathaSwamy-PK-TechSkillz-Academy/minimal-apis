@@ -1,4 +1,4 @@
-@hostname=https://localhost
+@hostname=http://localhost
 @port=5264
 @host={{hostname}}:{{port}}
 
