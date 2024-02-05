@@ -1,0 +1,27 @@
+version: 0.0
+os: linux
+
+resources:
+  - ec2-codedeploy-002
+
+files:
+  - source: /target
+    destination: /home/ubuntu/schoolapp
+  - source: /Scripts/webapi.service
+    destination: /etc/systemd/system
+
+hooks:
+  BeforeInstall:
+    - location: Scripts/before_install.sh
+      timeout: 300
+      runas: root
+
+  ApplicationStart:
+    - location: Scripts/application_start.sh
+      timeout: 300
+      runas: root
+
+  ApplicationStop:
+    - location: Scripts/application_stop.sh
+      timeout: 300
+      runas: root

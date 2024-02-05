@@ -1,0 +1,17 @@
+[Unit]
+Description=.NET 8 Shirts Web API
+
+[Service]
+WorkingDirectory=/home/ubuntu/schoolapp/
+ExecStart=/usr/bin/dotnet /home/ubuntu/schoolapp/School.API.dll
+Restart=always
+# Restart service after 10 seconds when dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=webapi
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+Environment=ASPNETCORE_URLS=http://*:80
+
+[Install]
+WantedBy=multi-user.target
