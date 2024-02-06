@@ -15,9 +15,10 @@ phases:
       - dotnet restore ./School-App.sln
       - dotnet build ./School-App.sln
       - dotnet publish  ./School-App.sln -c Release -o target
+      - echo Build completed at `date`
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Post Build completed on `date`
 artifacts:
   files:
     - target/**/*
