@@ -8,16 +8,17 @@ phases:
       - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 8.0
   pre_build:
     commands:
-      - echo Nothing to do in the pre_build phase...
+      - echo This pre_build phase ... ran at `date`
   build:
     commands:
-      - echo Build started on `date`
+      - echo Build started at `date`
       - dotnet restore ./School-App.sln
       - dotnet build ./School-App.sln
       - dotnet publish  ./School-App.sln -c Release -o target
+      - echo Build completed at `date`
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo This pre_build phase ... ran at `date`
 artifacts:
   files:
     - target/**/*
