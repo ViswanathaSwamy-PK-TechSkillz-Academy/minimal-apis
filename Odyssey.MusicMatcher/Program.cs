@@ -1,18 +1,33 @@
 using Odyssey.MusicMatcher.Types;
-using System.Buffers.Text;
-using System.Collections.Generic;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Reference: https://www.apollographql.com/tutorials/intro-hotchocolate/05-apollo-explorer
+
 builder.Services.AddGraphQLServer()
     .AddQueryType<Query>();
+
+builder.Services
+   .AddCors(options =>
+   {
+       options.AddDefaultPolicy(builder =>
+       {
+           builder
+               .WithOrigins("https://studio.apollographql.com")
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+       });
+   });
 
 var app = builder.Build();
 
 app.MapGet("/api", () => "Hello World!");
 
+app.UseCors();
+
 // /graphql
 app.MapGraphQL();
+
 app.Run();
 
 
