@@ -3,6 +3,7 @@ using Odyssey.MusicMatcher.Types;
 var builder = WebApplication.CreateBuilder(args);
 
 // Reference: https://www.apollographql.com/tutorials/intro-hotchocolate/05-apollo-explorer
+// Reference: https://graphql.org/learn/
 
 builder.Services.AddGraphQLServer()
     .AddQueryType<Query>();
