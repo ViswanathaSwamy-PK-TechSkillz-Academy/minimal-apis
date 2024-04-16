@@ -13,14 +13,11 @@
   "paths": {
     "/browse/featured-playlists": {
       "get": {
-        "description": "Get a list of Spotify featured playlists (shown, for example, on a Spotify player's 'Browse' tab).,
-        ",: null,
-        "tags": [
-          "Playlists"
-        ],
+        "description": "Get a list of Spotify featured playlists (shown, for example, on a Spotify player's 'Browse' tab).\n",
+        "tags": ["Playlists"],
         "operationId": "get-featured-playlists",
         "responses": {
-          200: {
+          "200": {
             "description": "OK",
             "content": {
               "application/json": {
@@ -33,15 +30,11 @@
         }
       }
     },
-    "/playlists/" { "playlist_id" },
-    : {
+    "/playlists/{playlist_id}": {
       "get": {
-        "description": "Get a playlist owned by a Spotify user.,
-        ",: null,
+        "description": "Get a playlist owned by a Spotify user.\n",
         "operationId": "get-playlist",
-        "tags": [
-          "Playlists"
-        ],
+        "tags": ["Playlists"],
         "parameters": [
           {
             "name": "playlist_id",
@@ -53,7 +46,7 @@
           }
         ],
         "responses": {
-          200: {
+          "200": {
             "description": "OK",
             "content": {
               "application/json": {
@@ -63,22 +56,17 @@
               }
             }
           },
-          404: {
+          "404": {
             "$ref": "#/components/responses/NotFound"
           }
         }
       }
     },
-    "/playlists/" { "playlist_id" }
-    "/tracks",
-    : {
+    "/playlists/{playlist_id}/tracks": {
       "get": {
-        "description": "Get full details of the items of a playlist owned by a Spotify user.,
-        ",: null,
+        "description": "Get full details of the items of a playlist owned by a Spotify user.\n",
         "operationId": "get-playlists-tracks",
-        "tags": [
-          "Playlists"
-        ],
+        "tags": ["Playlists"],
         "parameters": [
           {
             "name": "playlist_id",
@@ -90,7 +78,7 @@
           }
         ],
         "responses": {
-          200: {
+          "200": {
             "description": "OK",
             "content": {
               "application/json": {
@@ -100,18 +88,15 @@
               }
             }
           },
-          404: {
+          "404": {
             "$ref": "#/components/responses/NotFound"
           }
         }
       },
       "post": {
-        "description": "Add one or more items to a user's playlist.,
-        ",: null,
+        "description": "Add one or more items to a user's playlist.\n",
         "operationId": "add-tracks-to-playlist",
-        "tags": [
-          "Playlists"
-        ],
+        "tags": ["Playlists"],
         "parameters": [
           {
             "name": "playlist_id",
@@ -127,8 +112,7 @@
             "in": "query",
             "schema": {
               "title": "Position (append by default)",
-              "description": "The position to insert the items, a zero-based index. For example, to insert the items in the first position: `position=0`; to insert the items in the third position: `position=2`. If omitted, the items will be appended to the playlist. Items are added in the order they are listed in the query string or request body.,
-              ",: null,
+              "description": "The position to insert the items, a zero-based index. For example, to insert the items in the first position: `position=0`; to insert the items in the third position: `position=2`. If omitted, the items will be appended to the playlist. Items are added in the order they are listed in the query string or request body.\n",
               "example": 0,
               "type": "integer"
             }
@@ -139,37 +123,14 @@
             "in": "query",
             "schema": {
               "title": "Spotify Track URIs",
-              "description": "A comma-separated list of [Spotify URIs](/documentation/web-api/concepts/spotify-uris-ids) to add, can be track or episode URIs. For example:<br/>`uris=spotify:track:4iV5W9uYEdYUVa79Axb7Rh, spotify:track:1301WleyT98MSxVHPZCA6M, spotify:episode:512ojhOuo1ktJprKbVcKyQ`<br/>A maximum of 100 items can be added in one request. <br/>,
-              "_**Note**": "it",
-              "is" "likely",
-              "that" "passing",
-              "a" "large",
-              "number" "of",
-              "item" "URIs",
-              "as" "a",
-              "query" "parameter",
-              "will" "exceed",
-              "the" "maximum",
-              "length" "of",
-              "the" "request",
-              "URI." "When",
-              "adding" "a",
-              "large" "number",
-              "of" "items",
-              "it" "is",
-              "recommended" "to",
-              "pass" "them",
-              "in" "the",
-              "request" "body",
-              "see" "below._",
-              ",: null,
+              "description": "A comma-separated list of [Spotify URIs](/documentation/web-api/concepts/spotify-uris-ids) to add, can be track or episode URIs. For example:<br/>`uris=spotify:track:4iV5W9uYEdYUVa79Axb7Rh, spotify:track:1301WleyT98MSxVHPZCA6M, spotify:episode:512ojhOuo1ktJprKbVcKyQ`<br/>A maximum of 100 items can be added in one request. <br/>\n_**Note**: it is likely that passing a large number of item URIs as a query parameter will exceed the maximum length of the request URI. When adding a large number of items, it is recommended to pass them in the request body, see below._\n",
               "example": "spotify:track:4iV5W9uYEdYUVa79Axb7Rh,spotify:track:1301WleyT98MSxVHPZCA6M",
               "type": "string"
             }
           }
         ],
         "responses": {
-          201: {
+          "201": {
             "description": "OK",
             "content": {
               "application/json": {
@@ -179,7 +140,7 @@
               }
             }
           },
-          404: {
+          "404": {
             "$ref": "#/components/responses/NotFound"
           }
         }
@@ -187,25 +148,10 @@
     },
     "/search": {
       "get": {
-        "tags": [
-          "Playlists"
-        ],
+        "tags": ["Playlists"],
         "operationId": "search",
-        "summary": "Search for Item,
-        ",: null,
-        "description": "Get Spotify catalog information about albums, artists, playlists, tracks, shows, episodes or audiobooks,
-        "that" "match",
-        "a" "keyword",
-        "string.<br" "/>",
-        "**Note": "Audiobooks",
-        "are" "only",
-        "available" "for",
-        "the" "US",
-        "UK",
-        "Ireland",
-        "New" "Zealand",
-        "and" "Australia",
-        "markets.**" ",,
+        "summary": "Search for Item\n",
+        "description": "Get Spotify catalog information about albums, artists, playlists, tracks, shows, episodes or audiobooks\nthat match a keyword string.<br />\n**Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**\n",
         "parameters": [
           {
             "name": "q",
@@ -213,84 +159,7 @@
             "in": "query",
             "schema": {
               "title": "Query",
-              "description": "Your search query.,
-
-              "You" "can",
-              "narrow" "down",
-              "your" "search",
-              "using" "field",
-              "filters." "The",
-              "available" "filters",
-              "are" "`album`",
-              "`artist`",
-              "`track`",
-              "`year`",
-              "`upc`",
-              "`tag": "hipster`",
-              "`tag": "new`",
-              "`isrc`",
-              "and" "`genre`.",
-              "Each" "field",
-              "filter" "only",
-              "applies" "to",
-              "certain" "result",
-              "types." "The",
-              "`artist`" "and",
-              "`year`" "filters",
-              "can" "be",
-              "used" "while",
-              "searching" "albums",
-              "artists" "and",
-              "tracks." "You",
-              "can" "filter",
-              "on" "a",
-              "single" "`year`",
-              "or" "a",
-              "range" "(e.g.",
-              1955 "-1960).<br",
-              "/>" "The",
-              "`album`" "filter",
-              "can" "be",
-              "used" "while",
-              "searching" "albums",
-              "and" "tracks.<br",
-              "/>" "The",
-              "`genre`" "filter",
-              "can" "be",
-              "used" "while",
-              "searching" "artists",
-              "and" "tracks.<br",
-              "/>" "The",
-              "`isrc`" "and",
-              "`track`" "filters",
-              "can" "be",
-              "used" "while",
-              "searching" "tracks.<br",
-              "/>" "The",
-              "`upc`",
-              "`tag": "new`",
-              "and": null,
-              "`tag": "hipster`",
-              "filters" "can",
-              "only" "be",
-              "used" "while",
-              "searching" "albums.",
-              "The": null,
-              "`tag": "new`",
-              "filter" "will",
-              "return" "albums",
-              "released" "in",
-              "the" "past",
-              "two" "weeks",
-              "and": null,
-              "`tag": "hipster`",
-              "can" "be",
-              "used" "to",
-              "return" "only",
-              "albums" "with",
-              "the" "lowest",
-              "10%" "popularity.<br",
-              "/>" ",,
+              "description": "Your search query.\n\nYou can narrow down your search using field filters. The available filters are `album`, `artist`, `track`, `year`, `upc`, `tag:hipster`, `tag:new`, `isrc`, and `genre`. Each field filter only applies to certain result types.\n\nThe `artist` and `year` filters can be used while searching albums, artists and tracks. You can filter on a single `year` or a range (e.g. 1955-1960).<br />\nThe `album` filter can be used while searching albums and tracks.<br />\nThe `genre` filter can be used while searching artists and tracks.<br />\nThe `isrc` and `track` filters can be used while searching tracks.<br />\nThe `upc`, `tag:new` and `tag:hipster` filters can only be used while searching albums. The `tag:new` filter will return albums released in the past two weeks and `tag:hipster` can be used to return only albums with the lowest 10% popularity.<br />\n",
               "example": "cooking",
               "type": "string"
             }
@@ -301,18 +170,7 @@
             "in": "query",
             "schema": {
               "title": "Item type",
-              "description": "A comma-separated list of item types to search across. Search results include hits,
-              "from" "all",
-              "the" "specified",
-              "item" "types.",
-              "For": null,
-              "example": "`q=abacab&type=album",
-              "track`" "returns",
-              "both" "albums",
-              "and" "tracks",
-              "matching" "abacab"
-              ".",
-              ",,
+              "description": "A comma-separated list of item types to search across. Search results include hits\nfrom all the specified item types. For example: `q=abacab&type=album,track` returns\nboth albums and tracks matching \"abacab\".\n",
               "items": {
                 "type": "string",
                 "title": "searchType",
@@ -336,8 +194,7 @@
             "in": "query",
             "schema": {
               "title": "Limit",
-              "description": "The maximum number of results to return in each item type.,
-              ",: null,
+              "description": "The maximum number of results to return in each item type.\n",
               "default": 20,
               "example": 10,
               "type": "integer",
@@ -352,13 +209,7 @@
             "in": "query",
             "schema": {
               "title": "Offset",
-              "description": "The index of the first result to return. Use,
-              "with" "limit",
-              "to" "get",
-              "the" "next",
-              "page" "of",
-              "search" "results.",
-              ",: null,
+              "description": "The index of the first result to return. Use\nwith limit to get the next page of search results.\n",
               "default": 0,
               "minimum": 0,
               "maximum": 1000,
@@ -373,27 +224,14 @@
             "in": "query",
             "schema": {
               "title": "Include External",
-              "description": "If `include_external=audio` is specified it signals that the client can play externally hosted audio content, and marks,
-              "the" "content",
-              "as" "playable",
-              "in" "the",
-              "response." "By",
-              "default" "externally",
-              "hosted" "audio",
-              "content" "is",
-              "marked" "as",
-              "unplayable" "in",
-              "the" "response.",
-              ",: null,
+              "description": "If `include_external=audio` is specified it signals that the client can play externally hosted audio content, and marks\nthe content as playable in the response. By default externally hosted audio content is marked as unplayable in the response.\n",
               "type": "string",
-              "enum": [
-                "audio"
-              ]
+              "enum": ["audio"]
             }
           }
         ],
         "responses": {
-          200: {
+          "200": {
             "description": "OK",
             "content": {
               "application/json": {
@@ -411,12 +249,7 @@
     "schemas": {
       "Spotify.HTTPMethod": {
         "type": "string",
-        "enum": [
-          "DELETE",
-          "GET",
-          "POST",
-          "PUT"
-        ]
+        "enum": ["DELETE", "GET", "POST", "PUT"]
       },
       "Spotify.Error.AuthenticationError": {
         "type": "object",
@@ -428,10 +261,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "error",
-          "error_description"
-        ],
+        "required": ["error", "error_description"],
         "additionalProperties": false
       },
       "Spotify.Error.RegularError": {
@@ -450,16 +280,11 @@
                 "type": "string"
               }
             },
-            "required": [
-              "status",
-              "message"
-            ],
+            "required": ["status", "message"],
             "additionalProperties": false
           }
         },
-        "required": [
-          "error"
-        ],
+        "required": ["error"],
         "additionalProperties": false
       },
       "Spotify.Object.Actions": {
@@ -469,9 +294,7 @@
             "$ref": "#/components/schemas/Spotify.Object.Disallows"
           }
         },
-        "required": [
-          "disallows"
-        ],
+        "required": ["disallows"],
         "additionalProperties": false
       },
       "Spotify.Object.Disallows": {
@@ -612,11 +435,7 @@
       },
       "Spotify.Object.AlbumType": {
         "type": "string",
-        "enum": [
-          "album",
-          "compilation",
-          "single"
-        ]
+        "enum": ["album", "compilation", "single"]
       },
       "Spotify.Object.ArtistSimplified": {
         "type": "object",
@@ -641,14 +460,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "external_urls",
-          "href",
-          "id",
-          "name",
-          "type",
-          "uri"
-        ],
+        "required": ["external_urls", "href", "id", "name", "type", "uri"],
         "additionalProperties": false
       },
       "Spotify.Object.ExternalUrl": {
@@ -658,9 +470,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "spotify"
-        ],
+        "required": ["spotify"],
         "additionalProperties": false
       },
       "Spotify.Object.CountryCode": {
@@ -676,18 +486,12 @@
             "$ref": "#/components/schemas/Spotify.Object.CopyrightType"
           }
         },
-        "required": [
-          "text",
-          "type"
-        ],
+        "required": ["text", "type"],
         "additionalProperties": false
       },
       "Spotify.Object.CopyrightType": {
         "type": "string",
-        "enum": [
-          "C",
-          "P"
-        ]
+        "enum": ["C", "P"]
       },
       "Spotify.Object.ExternalId": {
         "type": "object",
@@ -708,20 +512,12 @@
             "type": "number"
           }
         },
-        "required": [
-          "url",
-          "height",
-          "width"
-        ],
+        "required": ["url", "height", "width"],
         "additionalProperties": false
       },
       "Spotify.Object.ReleaseDatePrecision": {
         "type": "string",
-        "enum": [
-          "day",
-          "month",
-          "year"
-        ]
+        "enum": ["day", "month", "year"]
       },
       "Spotify.Object.Paginated<Spotify.Object.TrackSimplified>": {
         "type": "object",
@@ -865,13 +661,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "external_urls",
-          "href",
-          "id",
-          "type",
-          "uri"
-        ],
+        "required": ["external_urls", "href", "id", "type", "uri"],
         "additionalProperties": false
       },
       "Spotify.Object.Restrictions": {
@@ -879,16 +669,10 @@
         "properties": {
           "reason": {
             "type": "string",
-            "enum": [
-              "market",
-              "product",
-              "explicit"
-            ]
+            "enum": ["market", "product", "explicit"]
           }
         },
-        "required": [
-          "reason"
-        ],
+        "required": ["reason"],
         "additionalProperties": false
       },
       "Spotify.Object.AlbumSimplified": {
@@ -966,12 +750,7 @@
       },
       "Spotify.Object.AlbumGroup": {
         "type": "string",
-        "enum": [
-          "album",
-          "appears_on",
-          "compilation",
-          "single"
-        ]
+        "enum": ["album", "appears_on", "compilation", "single"]
       },
       "Spotify.Object.Artist": {
         "type": "object",
@@ -1039,9 +818,7 @@
             "type": "number"
           }
         },
-        "required": [
-          "total"
-        ],
+        "required": ["total"],
         "additionalProperties": false
       },
       "Spotify.Object.ArtistTopTracks": {
@@ -1054,9 +831,7 @@
             }
           }
         },
-        "required": [
-          "tracks"
-        ],
+        "required": ["tracks"],
         "additionalProperties": false
       },
       "Spotify.Object.Track": {
@@ -1186,12 +961,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": [
-              "artist",
-              "playlist",
-              "album",
-              "show"
-            ]
+            "enum": ["artist", "playlist", "album", "show"]
           },
           "href": {
             "type": "string"
@@ -1203,12 +973,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "type",
-          "href",
-          "external_urls",
-          "uri"
-        ],
+        "required": ["type", "href", "external_urls", "uri"],
         "additionalProperties": false
       },
       "Spotify.Object.CurrentlyPlaying": {
@@ -1364,10 +1129,7 @@
             "type": "number"
           }
         },
-        "required": [
-          "fully_played",
-          "resume_position_ms"
-        ],
+        "required": ["fully_played", "resume_position_ms"],
         "additionalProperties": false
       },
       "Spotify.Object.ShowSimplified": {
@@ -1461,12 +1223,7 @@
       },
       "Spotify.Object.CurrentlyPlayingType": {
         "type": "string",
-        "enum": [
-          "track",
-          "episode",
-          "ad",
-          "unknown"
-        ]
+        "enum": ["track", "episode", "ad", "unknown"]
       },
       "Spotify.Object.CurrentUser": {
         "type": "object",
@@ -1538,10 +1295,7 @@
             "type": "boolean"
           }
         },
-        "required": [
-          "filter_enabled",
-          "filter_locked"
-        ],
+        "required": ["filter_enabled", "filter_locked"],
         "additionalProperties": false
       },
       "Spotify.Object.Cursors": {
@@ -1695,10 +1449,7 @@
             "$ref": "#/components/schemas/Spotify.Object.Paginated<Spotify.Object.PlaylistSimplified>"
           }
         },
-        "required": [
-          "message",
-          "playlists"
-        ],
+        "required": ["message", "playlists"],
         "additionalProperties": false
       },
       "Spotify.Object.Paginated<Spotify.Object.PlaylistSimplified>": {
@@ -1859,10 +1610,7 @@
             "type": "number"
           }
         },
-        "required": [
-          "href",
-          "total"
-        ],
+        "required": ["href", "total"],
         "additionalProperties": false
       },
       "Spotify.Object.NewReleases": {
@@ -1872,9 +1620,7 @@
             "$ref": "#/components/schemas/Spotify.Object.Paginated<Spotify.Object.AlbumSimplified>"
           }
         },
-        "required": [
-          "albums"
-        ],
+        "required": ["albums"],
         "additionalProperties": false
       },
       "Spotify.Object.Paginated<Spotify.Object.AlbumSimplified>": {
@@ -1985,11 +1731,7 @@
       },
       "Spotify.Object.RepeatMode": {
         "type": "string",
-        "enum": [
-          "context",
-          "off",
-          "track"
-        ]
+        "enum": ["context", "off", "track"]
       },
       "Spotify.Object.PlaybackQueue": {
         "type": "object",
@@ -2021,10 +1763,7 @@
             }
           }
         },
-        "required": [
-          "currently_playing",
-          "queue"
-        ],
+        "required": ["currently_playing", "queue"],
         "additionalProperties": false
       },
       "Spotify.Object.PlayHistory": {
@@ -2040,11 +1779,7 @@
             "$ref": "#/components/schemas/Spotify.Object.Context"
           }
         },
-        "required": [
-          "track",
-          "played_at",
-          "context"
-        ],
+        "required": ["track", "played_at", "context"],
         "additionalProperties": false
       },
       "Spotify.Object.Playlist": {
@@ -2080,6 +1815,7 @@
           "owner": {
             "$ref": "#/components/schemas/Spotify.Object.UserSimplified"
           },
+
           "public": {
             "type": "boolean"
           },
@@ -2138,13 +1874,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "external_urls",
-          "href",
-          "id",
-          "type",
-          "uri"
-        ],
+        "required": ["external_urls", "href", "id", "type", "uri"],
         "additionalProperties": false
       },
       "Spotify.Object.Paginated<Spotify.Object.PlaylistTrack>": {
@@ -2221,9 +1951,7 @@
                 "nullable": true
               }
             },
-            "required": [
-              "url"
-            ],
+            "required": ["url"],
             "additionalProperties": false
           }
         },
@@ -2551,14 +2279,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "external_urls",
-          "href",
-          "id",
-          "name",
-          "type",
-          "uri"
-        ],
+        "required": ["external_urls", "href", "id", "name", "type", "uri"],
         "additionalProperties": false
       },
       "Spotify.Object.Recommendations": {
@@ -2577,10 +2298,7 @@
             }
           }
         },
-        "required": [
-          "seeds",
-          "tracks"
-        ],
+        "required": ["seeds", "tracks"],
         "additionalProperties": false
       },
       "Spotify.Object.RecommendationSeed": {
@@ -2603,11 +2321,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "ARTIST",
-              "TRACK",
-              "GENRE"
-            ]
+            "enum": ["ARTIST", "TRACK", "GENRE"]
           }
         },
         "required": [
@@ -2630,10 +2344,7 @@
             "$ref": "#/components/schemas/Spotify.Object.Album"
           }
         },
-        "required": [
-          "added_at",
-          "album"
-        ],
+        "required": ["added_at", "album"],
         "additionalProperties": false
       },
       "Spotify.Object.SavedEpisode": {
@@ -2646,10 +2357,7 @@
             "$ref": "#/components/schemas/Spotify.Object.Episode"
           }
         },
-        "required": [
-          "added_at",
-          "episode"
-        ],
+        "required": ["added_at", "episode"],
         "additionalProperties": false
       },
       "Spotify.Object.SavedShow": {
@@ -2662,10 +2370,7 @@
             "$ref": "#/components/schemas/Spotify.Object.Show"
           }
         },
-        "required": [
-          "added_at",
-          "show"
-        ],
+        "required": ["added_at", "show"],
         "additionalProperties": false
       },
       "Spotify.Object.Show": {
@@ -2812,10 +2517,7 @@
             "$ref": "#/components/schemas/Spotify.Object.Track"
           }
         },
-        "required": [
-          "added_at",
-          "track"
-        ],
+        "required": ["added_at", "track"],
         "additionalProperties": false
       },
       "Spotify.Object.SearchResults": {
@@ -3052,47 +2754,35 @@
       "Spotify.Response.DELETE": {
         "type": "object",
         "properties": {
-          "/playlists/": "id/tracks"
-          null,
-          : {
+          "/playlists/:id/tracks": {
             "type": "object",
             "properties": {
               "snapshot_id": {
                 "type": "string"
               }
             },
-            "required": [
-              "snapshot_id"
-            ],
+            "required": ["snapshot_id"],
             "additionalProperties": false
           }
         },
-        "required": [
-          "/playlists/:id/tracks"
-        ],
+        "required": ["/playlists/:id/tracks"],
         "additionalProperties": false
       },
       "Spotify.Response.POST": {
         "type": "object",
         "properties": {
-          "/playlists/": "id/tracks"
-          null,
-          : {
+          "/playlists/:id/tracks": {
             "type": "object",
             "properties": {
               "snapshot_id": {
                 "type": "string"
               }
             },
-            "required": [
-              "snapshot_id"
-            ],
+            "required": ["snapshot_id"],
             "additionalProperties": false
           }
         },
-        "required": [
-          "/playlists/:id/tracks"
-        ],
+        "required": ["/playlists/:id/tracks"],
         "additionalProperties": false
       },
       "Spotify.Response.GET": {
@@ -3101,45 +2791,31 @@
           "/albums": {
             "$ref": "#/components/schemas/Spotify.Object.List<'albums',Spotify.Object.Album>"
           },
-          "/albums/": "id"
-          null,
-          : {
+          "/albums/:id": {
             "$ref": "#/components/schemas/Spotify.Object.Album"
           },
-          "/albums/": "id/tracks"
-          null,
-          : {
+          "/albums/:id/tracks": {
             "$ref": "#/components/schemas/Spotify.Object.Paginated<Spotify.Object.TrackSimplified>"
           },
           "/artists": {
             "$ref": "#/components/schemas/Spotify.Object.List<'artists',Spotify.Object.Artist>"
           },
-          "/artists/": "id"
-          null,
-          : {
+          "/artists/:id": {
             "$ref": "#/components/schemas/Spotify.Object.Artist"
           },
-          "/artists/": "id/albums"
-          null,
-          : {
+          "/artists/:id/albums": {
             "$ref": "#/components/schemas/Spotify.Object.Paginated<Spotify.Object.AlbumSimplified>"
           },
-          "/artists/": "id/related-artists"
-          null,
-          : {
+          "/artists/:id/related-artists": {
             "$ref": "#/components/schemas/Spotify.Object.List<'artists',Spotify.Object.Artist>"
           },
-          "/artists/": "id/top-tracks"
-          null,
-          : {
+          "/artists/:id/top-tracks": {
             "$ref": "#/components/schemas/Spotify.Object.ArtistTopTracks"
           },
           "/audio-features": {
             "$ref": "#/components/schemas/Spotify.Object.List<'audio_features',Spotify.Object.TrackAudioFeatures>"
           },
-          "/audio-features/": "id"
-          null,
-          : {
+          "/audio-features/:id": {
             "$ref": "#/components/schemas/Spotify.Object.TrackAudioFeatures"
           },
           "/authorize": {
@@ -3154,9 +2830,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "code"
-                ],
+                "required": ["code"],
                 "additionalProperties": false
               },
               {
@@ -3169,9 +2843,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "error"
-                ],
+                "required": ["error"],
                 "additionalProperties": false
               }
             ]
@@ -3188,9 +2860,7 @@
           "/episodes": {
             "$ref": "#/components/schemas/Spotify.Object.List<'episodes',Spotify.Object.Episode>"
           },
-          "/episodes/": "id"
-          null,
-          : {
+          "/episodes/:id": {
             "$ref": "#/components/schemas/Spotify.Object.Episode"
           },
           "/me": {
@@ -3221,9 +2891,7 @@
                 "$ref": "#/components/schemas/Spotify.Object.PaginatedCursorBased<Spotify.Object.Artist>"
               }
             },
-            "required": [
-              "artists"
-            ],
+            "required": ["artists"],
             "additionalProperties": false
           },
           "/me/following/contains": {
@@ -3274,22 +2942,16 @@
               "type": "boolean"
             }
           },
-          "/playlists/": "id"
-          null,
-          : {
+          "/playlists/:id": {
             "$ref": "#/components/schemas/Spotify.Object.Playlist"
           },
-          "/playlists/": "id/followers/contains"
-          null,
-          : {
+          "/playlists/:id/followers/contains": {
             "type": "array",
             "items": {
               "type": "boolean"
             }
           },
-          "/playlists/": "id/tracks"
-          null,
-          : {
+          "/playlists/:id/tracks": {
             "$ref": "#/components/schemas/Spotify.Object.Paginated<Spotify.Object.PlaylistTrack>"
           },
           "/recommendations": {
@@ -3304,27 +2966,19 @@
           "/shows": {
             "$ref": "#/components/schemas/Spotify.Object.List<'shows',Spotify.Object.Show>"
           },
-          "/shows/": "id"
-          null,
-          : {
+          "/shows/:id": {
             "$ref": "#/components/schemas/Spotify.Object.Show"
           },
-          "/shows/": "id/episodes"
-          null,
-          : {
+          "/shows/:id/episodes": {
             "$ref": "#/components/schemas/Spotify.Object.Paginated<Spotify.Object.EpisodeSimplified>"
           },
           "/tracks": {
             "$ref": "#/components/schemas/Spotify.Object.List<'tracks',Spotify.Object.Track>"
           },
-          "/tracks/": "id"
-          null,
-          : {
+          "/tracks/:id": {
             "$ref": "#/components/schemas/Spotify.Object.Track"
           },
-          "/users/": "id"
-          null,
-          : {
+          "/users/:id": {
             "$ref": "#/components/schemas/Spotify.Object.User"
           }
         },
@@ -3379,8 +3033,7 @@
         ],
         "additionalProperties": false
       },
-      "Spotify.Object.List<'albums'",
-      "Spotify.Object.Album>": {
+      "Spotify.Object.List<'albums',Spotify.Object.Album>": {
         "type": "object",
         "properties": {
           "albums": {
@@ -3390,13 +3043,10 @@
             }
           }
         },
-        "required": [
-          "albums"
-        ],
+        "required": ["albums"],
         "additionalProperties": false
       },
-      "Spotify.Object.List<'artists'",
-      "Spotify.Object.Artist>": {
+      "Spotify.Object.List<'artists',Spotify.Object.Artist>": {
         "type": "object",
         "properties": {
           "artists": {
@@ -3406,13 +3056,10 @@
             }
           }
         },
-        "required": [
-          "artists"
-        ],
+        "required": ["artists"],
         "additionalProperties": false
       },
-      "Spotify.Object.List<'audio_features'",
-      "Spotify.Object.TrackAudioFeatures>": {
+      "Spotify.Object.List<'audio_features',Spotify.Object.TrackAudioFeatures>": {
         "type": "object",
         "properties": {
           "audio_features": {
@@ -3422,13 +3069,10 @@
             }
           }
         },
-        "required": [
-          "audio_features"
-        ],
+        "required": ["audio_features"],
         "additionalProperties": false
       },
-      "Spotify.Object.List<'episodes'",
-      "Spotify.Object.Episode>": {
+      "Spotify.Object.List<'episodes',Spotify.Object.Episode>": {
         "type": "object",
         "properties": {
           "episodes": {
@@ -3438,9 +3082,7 @@
             }
           }
         },
-        "required": [
-          "episodes"
-        ],
+        "required": ["episodes"],
         "additionalProperties": false
       },
       "Spotify.Object.Paginated<Spotify.Object.SavedAlbum>": {
@@ -3551,18 +3193,10 @@
             "type": "number"
           }
         },
-        "required": [
-          "href",
-          "items",
-          "limit",
-          "next",
-          "cursors",
-          "total"
-        ],
+        "required": ["href", "items", "limit", "next", "cursors", "total"],
         "additionalProperties": false
       },
-      "Spotify.Object.List<'devices'",
-      "Spotify.Object.Device>": {
+      "Spotify.Object.List<'devices',Spotify.Object.Device>": {
         "type": "object",
         "properties": {
           "devices": {
@@ -3572,9 +3206,7 @@
             }
           }
         },
-        "required": [
-          "devices"
-        ],
+        "required": ["devices"],
         "additionalProperties": false
       },
       "Spotify.Object.PaginatedCursorBased<Spotify.Object.PlayHistory>": {
@@ -3603,14 +3235,7 @@
             "type": "number"
           }
         },
-        "required": [
-          "href",
-          "items",
-          "limit",
-          "next",
-          "cursors",
-          "total"
-        ],
+        "required": ["href", "items", "limit", "next", "cursors", "total"],
         "additionalProperties": false
       },
       "Spotify.Object.Paginated<Spotify.Object.Playlist>": {
@@ -3736,8 +3361,7 @@
         ],
         "additionalProperties": false
       },
-      "Spotify.Object.List<'genres'",
-      "string>": {
+      "Spotify.Object.List<'genres',string>": {
         "type": "object",
         "properties": {
           "genres": {
@@ -3747,13 +3371,10 @@
             }
           }
         },
-        "required": [
-          "genres"
-        ],
+        "required": ["genres"],
         "additionalProperties": false
       },
-      "Spotify.Object.List<'shows'",
-      "Spotify.Object.Show>": {
+      "Spotify.Object.List<'shows',Spotify.Object.Show>": {
         "type": "object",
         "properties": {
           "shows": {
@@ -3763,13 +3384,10 @@
             }
           }
         },
-        "required": [
-          "shows"
-        ],
+        "required": ["shows"],
         "additionalProperties": false
       },
-      "Spotify.Object.List<'tracks'",
-      "Spotify.Object.Track>": {
+      "Spotify.Object.List<'tracks',Spotify.Object.Track>": {
         "type": "object",
         "properties": {
           "tracks": {
@@ -3779,9 +3397,7 @@
             }
           }
         },
-        "required": [
-          "tracks"
-        ],
+        "required": ["tracks"],
         "additionalProperties": false
       },
       "Spotify.Request.Paths": {
@@ -3907,9 +3523,7 @@
             },
             "additionalProperties": false
           },
-          "/playlists/": "id/tracks"
-          null,
-          : {
+          "/playlists/:id/tracks": {
             "type": "object",
             "properties": {
               "snapshot_id": {
@@ -3924,16 +3538,12 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "uri"
-                  ],
+                  "required": ["uri"],
                   "additionalProperties": false
                 }
               }
             },
-            "required": [
-              "tracks"
-            ],
+            "required": ["tracks"],
             "additionalProperties": false
           }
         },
@@ -3949,9 +3559,7 @@
       "Spotify.Request.BodyParams.POST": {
         "type": "object",
         "properties": {
-          "/playlists/": "id/tracks"
-          null,
-          : {
+          "/playlists/:id/tracks": {
             "type": "object",
             "properties": {
               "uris": {
@@ -3967,9 +3575,7 @@
             "additionalProperties": false
           }
         },
-        "required": [
-          "/playlists/:id/tracks"
-        ],
+        "required": ["/playlists/:id/tracks"],
         "additionalProperties": false
       },
       "Spotify.Request.BodyParams.PUT": {
@@ -4024,9 +3630,7 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "device_ids"
-            ],
+            "required": ["device_ids"],
             "additionalProperties": false
           },
           "/me/player/play": {
@@ -4059,9 +3663,7 @@
             },
             "additionalProperties": false
           },
-          "/playlists/": "id/followers"
-          null,
-          : {
+          "/playlists/:id/followers": {
             "type": "object",
             "properties": {
               "public": {
@@ -4091,9 +3693,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/episodes": {
@@ -4103,9 +3703,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/following": {
@@ -4116,16 +3714,10 @@
               },
               "type": {
                 "type": "string",
-                "enum": [
-                  "artist",
-                  "user"
-                ]
+                "enum": ["artist", "user"]
               }
             },
-            "required": [
-              "ids",
-              "type"
-            ],
+            "required": ["ids", "type"],
             "additionalProperties": false
           },
           "/me/shows": {
@@ -4138,9 +3730,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/tracks": {
@@ -4150,9 +3740,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           }
         },
@@ -4178,14 +3766,10 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
-          "/albums/": "id"
-          null,
-          : {
+          "/albums/:id": {
             "type": "object",
             "properties": {
               "market": {
@@ -4194,9 +3778,7 @@
             },
             "additionalProperties": false
           },
-          "/albums/": "id/tracks"
-          null,
-          : {
+          "/albums/:id/tracks": {
             "type": "object",
             "properties": {
               "limit": {
@@ -4218,14 +3800,10 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
-          "/artists/": "id/albums"
-          null,
-          : {
+          "/artists/:id/albums": {
             "type": "object",
             "properties": {
               "limit": {
@@ -4240,18 +3818,14 @@
             },
             "additionalProperties": false
           },
-          "/artists/": "id/top-tracks"
-          null,
-          : {
+          "/artists/:id/top-tracks": {
             "type": "object",
             "properties": {
               "market": {
                 "type": "string"
               }
             },
-            "required": [
-              "market"
-            ],
+            "required": ["market"],
             "additionalProperties": false
           },
           "/audio-features": {
@@ -4261,9 +3835,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/browse/featured-playlists": {
@@ -4306,9 +3878,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/recommendations": {
@@ -4474,9 +4044,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/episodes": {
@@ -4501,9 +4069,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/following": {
@@ -4520,9 +4086,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "type"
-            ],
+            "required": ["type"],
             "additionalProperties": false
           },
           "/me/following/contains": {
@@ -4533,16 +4097,10 @@
               },
               "type": {
                 "type": "string",
-                "enum": [
-                  "artist",
-                  "user"
-                ]
+                "enum": ["artist", "user"]
               }
             },
-            "required": [
-              "ids",
-              "type"
-            ],
+            "required": ["ids", "type"],
             "additionalProperties": false
           },
           "/me/shows": {
@@ -4564,9 +4122,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/top/artists": {
@@ -4580,11 +4136,7 @@
               },
               "time_range": {
                 "type": "string",
-                "enum": [
-                  "long_term",
-                  "medium_term",
-                  "short_term"
-                ]
+                "enum": ["long_term", "medium_term", "short_term"]
               }
             },
             "additionalProperties": false
@@ -4600,11 +4152,7 @@
               },
               "time_range": {
                 "type": "string",
-                "enum": [
-                  "long_term",
-                  "medium_term",
-                  "short_term"
-                ]
+                "enum": ["long_term", "medium_term", "short_term"]
               }
             },
             "additionalProperties": false
@@ -4616,9 +4164,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/player": {
@@ -4678,23 +4224,17 @@
             },
             "additionalProperties": false
           },
-          "/playlists/": "id/followers/contains"
-          null,
-          : {
+          "/playlists/:id/followers/contains": {
             "type": "object",
             "properties": {
               "ids": {
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
-          "/playlists/": "id/tracks"
-          null,
-          : {
+          "/playlists/:id/tracks": {
             "type": "object",
             "properties": {
               "limit": {
@@ -4706,9 +4246,7 @@
             },
             "additionalProperties": false
           },
-          "/playlists/": "id"
-          null,
-          : {
+          "/playlists/:id": {
             "type": "object",
             "properties": {
               "additional_types": {
@@ -4746,10 +4284,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "q",
-              "type"
-            ],
+            "required": ["q", "type"],
             "additionalProperties": false
           },
           "/shows": {
@@ -4762,14 +4297,10 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
-          "/shows/": "id/episodes"
-          null,
-          : {
+          "/shows/:id/episodes": {
             "type": "object",
             "properties": {
               "limit": {
@@ -4791,14 +4322,10 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
-          "/tracks/": "id"
-          null,
-          : {
+          "/tracks/:id": {
             "type": "object",
             "properties": {
               "market": {
@@ -4878,14 +4405,10 @@
                 "type": "string"
               }
             },
-            "required": [
-              "uri"
-            ],
+            "required": ["uri"],
             "additionalProperties": false
           },
-          "/playlists/": "id/tracks"
-          null,
-          : {
+          "/playlists/:id/tracks": {
             "type": "object",
             "properties": {
               "position": {
@@ -4919,9 +4442,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/episodes": {
@@ -4931,9 +4452,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/following": {
@@ -4944,16 +4463,10 @@
               },
               "type": {
                 "type": "string",
-                "enum": [
-                  "artist",
-                  "user"
-                ]
+                "enum": ["artist", "user"]
               }
             },
-            "required": [
-              "ids",
-              "type"
-            ],
+            "required": ["ids", "type"],
             "additionalProperties": false
           },
           "/me/player/pause": {
@@ -4984,9 +4497,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "state"
-            ],
+            "required": ["state"],
             "additionalProperties": false
           },
           "/me/player/seek": {
@@ -4999,9 +4510,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "position_ms"
-            ],
+            "required": ["position_ms"],
             "additionalProperties": false
           },
           "/me/player/shuffle": {
@@ -5014,9 +4523,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "state"
-            ],
+            "required": ["state"],
             "additionalProperties": false
           },
           "/me/player/volume": {
@@ -5029,9 +4536,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "volume_percent"
-            ],
+            "required": ["volume_percent"],
             "additionalProperties": false
           },
           "/me/shows": {
@@ -5041,9 +4546,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           },
           "/me/tracks": {
@@ -5053,9 +4556,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ids"
-            ],
+            "required": ["ids"],
             "additionalProperties": false
           }
         },
@@ -5077,15 +4578,12 @@
     },
     "responses": {
       "NotFound": {
-        "description": "The requested resource cannot be found.,
-        ",: null,
+        "description": "The requested resource cannot be found.\n",
         "content": {
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "properties": {
                 "error": {
                   "type": "string"
