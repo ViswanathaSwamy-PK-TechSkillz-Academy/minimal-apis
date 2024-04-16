@@ -35,3 +35,4 @@ app.Run();
 // Reference: https://graphql.org/learn/
 // Reference: https://studio.apollographql.com/org/viswanatha-swamys-team/graphs
 // Reference: https://studio.apollographql.com/sandbox/explorer
+// Reference: https://github.com/apollographql-education/odyssey-intro-hotchocolate
