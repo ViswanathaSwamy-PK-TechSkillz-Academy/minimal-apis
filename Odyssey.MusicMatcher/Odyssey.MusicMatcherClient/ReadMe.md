@@ -1,21 +1,25 @@
 ﻿# Creating the .NET 8 GraphQL Client
 
-Add the Strawberry Shake CLI tools:
+## Add the Strawberry Shake CLI tools
 
-Open your terminal and navigate to the directory where you want to create the project.
-Run the following commands to create a dotnet tool-manifest and install the Strawberry Shake tools:
-sql
-Copy code
+> 1. Open your terminal and navigate to the directory where you want to create the project.
+> 1. Run the following commands to create a dotnet tool-manifest and install the Strawberry Shake tools:
+
+```powershell
 dotnet new tool-manifest
 dotnet tool install StrawberryShake.Tools --local
-Create a console project:
+```
 
-Create a new solution and console application using the following commands:
-csharp
-Copy code
-dotnet new sln -n Demo
-dotnet new console -n Demo
-dotnet sln add ./Demo
+## Create a console project
+
+> 1. Create a new solution and console application using the following commands:
+
+```powershell
+dotnet new sln -n Odyssey.MusicMatcher
+dotnet new console -n Odyssey.MusicMatcherClient
+dotnet sln add ./Odyssey.MusicMatcherClient
+```
+
 Install the required packages:
 
 Add the StrawberryShake.Server package to your project to enable code generation:
