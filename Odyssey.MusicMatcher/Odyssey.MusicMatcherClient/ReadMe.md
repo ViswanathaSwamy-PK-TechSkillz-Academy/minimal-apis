@@ -10,6 +10,8 @@ dotnet new tool-manifest
 dotnet tool install StrawberryShake.Tools --local
 ```
 
+![StrawberryShake CLI Tools](documentation/images/StrawberryShake_CLITools.PNG)
+
 ## Create a console project
 
 > 1. Create a new solution and console application using the following commands:
