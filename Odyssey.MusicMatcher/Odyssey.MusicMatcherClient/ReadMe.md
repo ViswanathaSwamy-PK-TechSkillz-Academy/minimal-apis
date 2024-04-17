@@ -1,0 +1,46 @@
+﻿# Creating the .NET 8 GraphQL Client
+
+Add the Strawberry Shake CLI tools:
+
+Open your terminal and navigate to the directory where you want to create the project.
+Run the following commands to create a dotnet tool-manifest and install the Strawberry Shake tools:
+sql
+Copy code
+dotnet new tool-manifest
+dotnet tool install StrawberryShake.Tools --local
+Create a console project:
+
+Create a new solution and console application using the following commands:
+csharp
+Copy code
+dotnet new sln -n Demo
+dotnet new console -n Demo
+dotnet sln add ./Demo
+Install the required packages:
+
+Add the StrawberryShake.Server package to your project to enable code generation:
+arduino
+Copy code
+dotnet add Demo package StrawberryShake.Server
+Add a GraphQL client using the CLI tools:
+
+Run the following command to initialize a GraphQL client in your project:
+csharp
+Copy code
+dotnet graphql init <https://workshop.chillicream.com/graphql/> -n ConferenceClient -p ./Demo
+Customize the namespace of the generated client by editing the .graphqlrc.json file.
+Write a GraphQL query:
+
+Create a new query document (e.g., GetSessions.graphql) in the ./Documents/Queries directory.
+Define your GraphQL query in the document.
+Compile your project:
+
+Run dotnet build to compile your project and generate the necessary code.
+Use the generated client in your code:
+
+Update your Program.cs file to use the generated client.
+Add code to execute the GraphQL query and handle the response.
+Run the console application:
+
+Start the console application using dotnet run --project ./Demo.
+Following these steps will set up a console application with Strawberry Shake as a GraphQL client, allowing you to fetch data from your GraphQL backend. If you have any questions or encounter any issues while following these instructions, feel free to ask!
