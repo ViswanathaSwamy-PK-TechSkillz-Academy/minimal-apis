@@ -22,19 +22,25 @@ dotnet new console -n Odyssey.MusicMatcherClient
 dotnet sln add ./Odyssey.MusicMatcherClient
 ```
 
-Install the required packages:
+## Install the required packages
 
-Add the StrawberryShake.Server package to your project to enable code generation:
-arduino
-Copy code
-dotnet add Demo package StrawberryShake.Server
-Add a GraphQL client using the CLI tools:
+> 1. Add the StrawberryShake.Server package to your project to enable code generation:
 
-Run the following command to initialize a GraphQL client in your project:
-csharp
-Copy code
-dotnet graphql init <https://workshop.chillicream.com/graphql/> -n ConferenceClient -p ./Demo
-Customize the namespace of the generated client by editing the .graphqlrc.json file.
+```powershell
+dotnet add Odyssey.MusicMatcherClient package StrawberryShake.Server
+```
+
+## Add a GraphQL client using the CLI tools
+
+> 1. Run the following command to initialize a GraphQL client in your project.
+> 1. This command initializes a GraphQL client named ConferenceClient in your project and configures it to connect to the specified GraphQL endpoint.
+> 1. After running the command, Strawberry Shake CLI will generate the necessary C# classes for your GraphQL operations and types based on the provided endpoint and schema.
+> 1. You can customize the namespace of the generated client by editing the .graphqlrc.json file.
+
+```powershell
+dotnet graphql init http://localhost:5266/graphql/ -n MusicMatcherClientSvc -p ./Demo
+```
+
 Write a GraphQL query:
 
 Create a new query document (e.g., GetSessions.graphql) in the ./Documents/Queries directory.
