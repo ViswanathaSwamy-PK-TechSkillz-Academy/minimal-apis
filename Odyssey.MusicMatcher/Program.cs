@@ -1,12 +1,13 @@
 using Odyssey.MusicMatcher.Types;
+using SpotifyWeb;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Reference: https://www.apollographql.com/tutorials/intro-hotchocolate/05-apollo-explorer
-// Reference: https://graphql.org/learn/
+builder.Services.AddHttpClient<SpotifyService>();
 
 builder.Services.AddGraphQLServer()
-    .AddQueryType<Query>();
+      .AddQueryType<Query>()
+      .RegisterService<SpotifyService>();
 
 builder.Services
    .AddCors(options =>
@@ -33,3 +34,8 @@ app.Run();
 
 
 // 1.annotation - based, 2. code - first, and 3. schema-first.
+// Reference: https://www.apollographql.com/tutorials/intro-hotchocolate/05-apollo-explorer
+// Reference: https://graphql.org/learn/
+// Reference: https://studio.apollographql.com/org/viswanatha-swamys-team/graphs
+// Reference: https://studio.apollographql.com/sandbox/explorer
+// Reference: https://github.com/apollographql-education/odyssey-intro-hotchocolate
