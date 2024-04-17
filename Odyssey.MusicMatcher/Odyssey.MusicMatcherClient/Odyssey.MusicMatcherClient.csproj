@@ -11,4 +11,8 @@
     <PackageReference Include="StrawberryShake.Server" Version="13.9.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Documents\" />
+  </ItemGroup>
+
 </Project>
