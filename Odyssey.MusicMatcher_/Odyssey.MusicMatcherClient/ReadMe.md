@@ -38,7 +38,7 @@ dotnet add Odyssey.MusicMatcherClient package StrawberryShake.Server
 > 1. You can customize the namespace of the generated client by editing the .graphqlrc.json file.
 
 ```powershell
-dotnet graphql init http://localhost:5266/graphql/ -n MusicMatcherClientSvc -p ./Demo
+dotnet graphql init http://localhost:5266/graphql/ -n MusicMatcherClientSvc
 ```
 
 Write a GraphQL query:
