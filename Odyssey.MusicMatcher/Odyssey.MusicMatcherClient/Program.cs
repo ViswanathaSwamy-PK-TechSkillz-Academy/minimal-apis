@@ -2,4 +2,4 @@
 
 var serviceCollection = new ServiceCollection();
 
-//serviceCollection.AddMusicMatcherClientSvc();
+serviceCollection.AddMusicMatcherClientSvc();
