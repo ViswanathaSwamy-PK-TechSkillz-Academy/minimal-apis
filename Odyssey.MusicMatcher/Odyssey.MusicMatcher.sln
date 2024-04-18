@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.10.34804.81
+VisualStudioVersion = 17.10.34814.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odyssey.MusicMatcher", "Odyssey.MusicMatcher.csproj", "{A75895FE-B306-4D52-8AC4-23DF47ED748C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odyssey.MusicMatcherGQL", "Odyssey.MusicMatcherGQL\Odyssey.MusicMatcherGQL.csproj", "{FB3BAEBD-6407-44A5-A854-EE5D5A03972F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odyssey.MusicMatcherClient", "Odyssey.MusicMatcherClient\Odyssey.MusicMatcherClient.csproj", "{81D53060-F52C-4595-880B-F27CACA201C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A75895FE-B306-4D52-8AC4-23DF47ED748C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A75895FE-B306-4D52-8AC4-23DF47ED748C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A75895FE-B306-4D52-8AC4-23DF47ED748C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A75895FE-B306-4D52-8AC4-23DF47ED748C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB3BAEBD-6407-44A5-A854-EE5D5A03972F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB3BAEBD-6407-44A5-A854-EE5D5A03972F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB3BAEBD-6407-44A5-A854-EE5D5A03972F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB3BAEBD-6407-44A5-A854-EE5D5A03972F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D53060-F52C-4595-880B-F27CACA201C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D53060-F52C-4595-880B-F27CACA201C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D53060-F52C-4595-880B-F27CACA201C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D53060-F52C-4595-880B-F27CACA201C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F19EC588-ED2C-489E-B496-3E415EB12D53}
+		SolutionGuid = {B8471FDC-5B24-4F4B-84B9-27875123E09A}
 	EndGlobalSection
 EndGlobal

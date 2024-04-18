@@ -1,0 +1,21 @@
+{
+  "schema": "schema.graphql",
+  "documents": "**/*.graphql",
+  "extensions": {
+    "strawberryShake": {
+      "name": "MusicMatcherClientSvc",
+      "namespace": "Odyssey.MusicMatcherClient",
+      "records": {
+        "inputs": false,
+        "entities": false
+      },
+      "transportProfiles": [
+        {
+          "default": "Http",
+          "subscription": "WebSocket"
+        }
+      ],
+      "url": "http://localhost:5032/graphql/"
+    }
+  }
+}
