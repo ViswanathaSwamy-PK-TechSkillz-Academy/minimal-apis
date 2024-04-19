@@ -10,8 +10,6 @@ serviceCollection
         .ConfigureHttpClient(client =>
         {
             client.BaseAddress = new Uri("http://localhost:5032/graphql");
-            client.DefaultRequestHeaders.Add("Accept", "*/*");
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         });
 
 IServiceProvider services = serviceCollection.BuildServiceProvider();
