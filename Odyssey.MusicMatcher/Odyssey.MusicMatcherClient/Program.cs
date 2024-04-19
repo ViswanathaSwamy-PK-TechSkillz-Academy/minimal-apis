@@ -1,12 +1,18 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Odyssey.MusicMatcherClient;
 using StrawberryShake;
+using System.Net.Http.Headers;
 
 var serviceCollection = new ServiceCollection();
 
 serviceCollection
         .AddMusicMatcherClientSvc()
-        .ConfigureHttpClient(client => client.BaseAddress = new Uri("http://localhost:5032/graphql"));
+        .ConfigureHttpClient(client =>
+        {
+            client.BaseAddress = new Uri("http://localhost:5032/graphql");
+            client.DefaultRequestHeaders.Add("Accept", "*/*");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        });
 
 IServiceProvider services = serviceCollection.BuildServiceProvider();
 
