@@ -10,3 +10,13 @@ dotnet new tool-manifest
 dotnet tool install NSwag.ConsoleCore --version 14.0.1
 
 dotnet nswag openapi2csclient /input:Data/swagger.json /classname:SpotifyService /namespace:SpotifyWeb /output:Data/SpotifyService.cs
+
+dotnet graphql init https://apim-micro-services-dev.azure-api.net/graphql -n ToDoClient -p .
+
+dotnet graphql init https://apim-micro-services-dev.azure-api.net/graphql/ -n ToDoClient -p . -x ocp-apim-subscription-key=YourKey -x Content-Type=application/json
+
+dotnet graphql init http://localhost:5032/graphql/ -n ToDoClient -p ./MusicClient
+
+PS D:\TSA\minimal-apis\GraphQL.ToDos> dotnet graphql init https://apim-micro-services-dev.azure-api.net/graphql/ -n ToDoClient -p . -x ocp-apim-subscription-key=YourSubscriptionKey -x Content-Type=application/json
+Download schema started.
+error INTROSPECTION_ERROR: Internal Execution Error
