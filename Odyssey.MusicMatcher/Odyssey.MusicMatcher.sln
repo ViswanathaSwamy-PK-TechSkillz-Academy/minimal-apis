@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34814.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odyssey.MusicMatcherGQL", "Odyssey.MusicMatcherGQL\Odyssey.MusicMatcherGQL.csproj", "{FB3BAEBD-6407-44A5-A854-EE5D5A03972F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odyssey.MusicMatcherGQL", "Odyssey.MusicMatcherGQL\Odyssey.MusicMatcherGQL.csproj", "{FB3BAEBD-6407-44A5-A854-EE5D5A03972F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odyssey.MusicMatcherClient", "Odyssey.MusicMatcherClient\Odyssey.MusicMatcherClient.csproj", "{81D53060-F52C-4595-880B-F27CACA201C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odyssey.MusicMatcherClient", "Odyssey.MusicMatcherClient\Odyssey.MusicMatcherClient.csproj", "{81D53060-F52C-4595-880B-F27CACA201C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todos.GraphQLClient", "Todos.GraphQLClient\Todos.GraphQLClient.csproj", "{432767AE-C543-4F03-A216-CFEEBE11FEC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{81D53060-F52C-4595-880B-F27CACA201C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81D53060-F52C-4595-880B-F27CACA201C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81D53060-F52C-4595-880B-F27CACA201C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{432767AE-C543-4F03-A216-CFEEBE11FEC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{432767AE-C543-4F03-A216-CFEEBE11FEC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{432767AE-C543-4F03-A216-CFEEBE11FEC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{432767AE-C543-4F03-A216-CFEEBE11FEC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
