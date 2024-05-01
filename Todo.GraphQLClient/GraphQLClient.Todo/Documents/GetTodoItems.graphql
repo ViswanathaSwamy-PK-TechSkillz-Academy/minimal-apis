@@ -1,0 +1,8 @@
+query TodoItems {
+    todoItems {
+        id
+        title
+        completed
+        userId
+    }
+}
