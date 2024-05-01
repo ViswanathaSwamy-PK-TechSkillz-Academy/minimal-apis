@@ -1,0 +1,14 @@
+schema {
+  query: Query
+}
+
+type Query {
+  todoItems: [TodoItem!]!
+}
+
+type TodoItem {
+  id: ID!
+  title: String!
+  completed: Boolean!
+  userId: ID!
+}
