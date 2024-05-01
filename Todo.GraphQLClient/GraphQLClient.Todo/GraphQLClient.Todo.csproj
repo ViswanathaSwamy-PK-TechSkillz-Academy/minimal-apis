@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="StrawberryShake.Server" Version="13.9.0" />
+    <PackageReference Include="StrawberryShake.Transport.Http" Version="13.9.0" />
   </ItemGroup>
 
 </Project>
