@@ -4,7 +4,7 @@ schema {
 
 type Query {
   todoItems: [TodoItem!]!
-  getTodoById(id: ID!): TodoItem
+  getTodoById(id: ID!): [TodoItem!]!
 }
 
 type TodoItem {

@@ -1,0 +1,3 @@
+query GetTodoById {
+    getTodoById(id: ID!): [TodoItem!]!
+}
