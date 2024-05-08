@@ -26,6 +26,12 @@ foreach (var todoItem in result?.Data?.TodoItems!)
     WriteLine($"Id: {todoItem.Id} \nTitle: {todoItem.Title} \nCompleted: {todoItem.Completed}\n");
 }
 
+var output = await client.GetTodoById.ExecuteAsync("6");
+foreach (var todoItem in output?.Data?.GetTodoById!)
+{
+    WriteLine($"Id: {todoItem.Id} \nTitle: {todoItem.Title} \nCompleted: {todoItem.Completed}\n");
+}
+
 ResetColor();
 
 WriteLine("\n\nPress any key ...");
