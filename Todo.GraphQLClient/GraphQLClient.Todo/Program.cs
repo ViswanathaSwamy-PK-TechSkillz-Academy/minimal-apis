@@ -9,7 +9,7 @@ serviceCollection
         .ConfigureHttpClient(client =>
         {
             client.BaseAddress = new Uri("https://apim-micro-services-dev.azure-api.net/graphql");
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "980c6e56098f44ffa6125256c75ed2b0");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
         });
 
 IServiceProvider services = serviceCollection.BuildServiceProvider();

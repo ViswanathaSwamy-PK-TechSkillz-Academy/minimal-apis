@@ -16,5 +16,3 @@ dotnet graphql init https://apim-micro-services-dev.azure-api.net/graphql -n Tod
 
 dotnet graphql init -n TodoClient -p ./GraphQLClient.Todo --headers "Ocp-Apim-Subscription-Key=YourKey" -x "content-type=application/json" https://apim-micro-services-dev.azure-api.net/graphql
 ```
-
-@($"https://jsonplaceholder.typicode.com/users/1/todos?id={context.GraphQL.Arguments["id"]}")"
