@@ -9,7 +9,7 @@ serviceCollection
         .ConfigureHttpClient(client =>
         {
             client.BaseAddress = new Uri("https://apim-micro-services-dev.azure-api.net/graphql");
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "980c6e56098f44ffa6125256c75ed2b0");
         });
 
 IServiceProvider services = serviceCollection.BuildServiceProvider();
@@ -22,6 +22,12 @@ result.EnsureNoErrors();
 ForegroundColor = ConsoleColor.DarkCyan;
 
 foreach (var todoItem in result?.Data?.TodoItems!)
+{
+    WriteLine($"Id: {todoItem.Id} \nTitle: {todoItem.Title} \nCompleted: {todoItem.Completed}\n");
+}
+
+var output = await client.GetTodoById.ExecuteAsync("6");
+foreach (var todoItem in output?.Data?.GetTodoById!)
 {
     WriteLine($"Id: {todoItem.Id} \nTitle: {todoItem.Title} \nCompleted: {todoItem.Completed}\n");
 }

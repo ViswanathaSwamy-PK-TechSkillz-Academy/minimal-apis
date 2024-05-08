@@ -1,3 +1,8 @@
-query GetTodoById {
-    getTodoById(id: ID!): [TodoItem!]!
+query GetTodoById($id: ID!) {
+    getTodoById(id: $id) {
+        id
+        title
+        completed
+        userId
+    }
 }
