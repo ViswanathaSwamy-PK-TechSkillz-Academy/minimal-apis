@@ -1,6 +1,5 @@
 ﻿using School.Business;
 using School.Data.Dtos;
-using static School.ApplicationCore.Common.Constants;
 
 namespace School.API.Endpoints;
 
