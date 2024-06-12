@@ -8,5 +8,5 @@ public class Course : BaseEntity
 
     public int Duration { get; set; }
 
-    public string? Description { get; set; } = "No description available."
+    public string? Description { get; set; } = "No description available.";
 }

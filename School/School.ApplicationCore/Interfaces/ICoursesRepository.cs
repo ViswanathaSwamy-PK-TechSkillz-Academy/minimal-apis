@@ -1,6 +1,6 @@
 ﻿using School.Data.Dtos;
 
-namespace School.API.ApplicationCore.Interfaces;
+namespace School.ApplicationCore.Interfaces;
 
 public interface ICoursesRepository
 {
