@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using School.Data.Dtos;
 using School.Data.Entities;
 using School.Persistence;
-using static School.ApplicationCore.Common.Constants;
 
 namespace School.API.Endpoints;
 
