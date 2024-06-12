@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using School.API.Configurations;
+using School.ApplicationCore.Interfaces;
+using School.Business;
 using School.Persistence;
+using School.Repositories;
 
 namespace School.API.Extensions;
 
@@ -17,6 +20,10 @@ public static class ConfigureDependedServicesExtensions
             {
                 options.UseSqlServer(connectionString);
             });
+
+        _ = services.AddScoped<ICoursesBusiness, CoursesBusiness>();
+
+        _ = services.AddScoped<ICoursesRepository, CoursesRepository>();
 
         _ = services.AddAutoMapper(typeof(AutoMapperConfig));
 
