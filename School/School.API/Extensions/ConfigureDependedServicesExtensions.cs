@@ -4,10 +4,10 @@ using School.Persistence;
 
 namespace School.API.Extensions;
 
-public static class ThirdPartyServiceExtensions
+public static class ConfigureDependedServicesExtensions
 {
 
-    public static IServiceCollection AddThirdPartyServices(this IServiceCollection services, string connectionString)
+    public static IServiceCollection ConfigureDependedServices(this IServiceCollection services, string connectionString)
     {
         _ = services.AddDbContext<SchoolDbContext>(options =>
             {
@@ -15,10 +15,6 @@ public static class ThirdPartyServiceExtensions
             });
 
         _ = services.AddAutoMapper(typeof(AutoMapperConfig));
-
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        _ = services.AddEndpointsApiExplorer();
-        _ = services.AddSwaggerGen();
 
         _ = services.AddCors(options =>
             {

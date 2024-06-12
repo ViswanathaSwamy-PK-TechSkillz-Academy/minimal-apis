@@ -1,4 +1,6 @@
-﻿namespace School.API.Extensions;
+﻿using School.API.Endpoints;
+
+namespace School.API.Extensions;
 
 public static class HttpRequestPipelineExtensions
 {
@@ -12,6 +14,10 @@ public static class HttpRequestPipelineExtensions
         }
 
         app.UseHttpsRedirection();
+
+        app.MapHelloWorldEndpoints();
+
+        //app.MapCourseEndpoints();
 
         app.UseCors("AllowAll");
 
