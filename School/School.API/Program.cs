@@ -18,8 +18,6 @@ _ = builder.Services.ConfigureDependedServices("Name=SchoolAppDbConnection");
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
-
 app.ConfigureHttpRequestPipeline();
 
 app.Run();
