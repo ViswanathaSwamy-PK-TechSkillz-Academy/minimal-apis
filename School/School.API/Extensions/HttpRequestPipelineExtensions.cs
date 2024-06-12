@@ -1,6 +1,4 @@
-﻿using School.API.Endpoints;
-
-namespace School.API.Extensions;
+﻿namespace School.API.Extensions;
 
 public static class HttpRequestPipelineExtensions
 {
@@ -12,11 +10,6 @@ public static class HttpRequestPipelineExtensions
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
-        // Endpoints
-        app.MapHelloWorldEndpoints();
-
-        app.MapCourseEndpoints();
 
         app.UseHttpsRedirection();
 

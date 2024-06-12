@@ -4,10 +4,10 @@ using School.Persistence;
 
 namespace School.API.Extensions;
 
-public static class ConfigureDependedServicesExtensions
+public static class ThirdPartyServiceExtensions
 {
 
-    public static IServiceCollection ConfigureDependedServices(this IServiceCollection services, string connectionString)
+    public static IServiceCollection AddThirdPartyServices(this IServiceCollection services, string connectionString)
     {
         _ = services.AddDbContext<SchoolDbContext>(options =>
             {
