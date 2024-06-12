@@ -9,6 +9,10 @@ public static class ConfigureDependedServicesExtensions
 
     public static IServiceCollection ConfigureDependedServices(this IServiceCollection services, string connectionString)
     {
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        _ = services.AddEndpointsApiExplorer();
+        _ = services.AddSwaggerGen();
+
         _ = services.AddDbContext<SchoolDbContext>(options =>
             {
                 options.UseSqlServer(connectionString);
